@@ -10,251 +10,212 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-      
         <StackLayout Grid.Row="0" Orientation="Horizontal">
-           
-            <Image
-                Source="strzalka.jpg"
-                Grid.Row="0"
-                HorizontalOptions="Start"
-                VerticalOptions="Start"
-                Margin="20,20,10,10"
-                WidthRequest="60">
+            <Image Source="strzalka.jpg"
+                   Grid.Row="0"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"
+                   Margin="20,20,10,10"
+                   WidthRequest="60">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnImageDo"/>
                 </Image.GestureRecognizers>
             </Image>
-        </StackLayout>
-
-        
-        <Image
+            <Image
             Source="tryby.jpg"
             Grid.Row="0"
             Grid.Column="1"
             WidthRequest="70"
             HorizontalOptions="End"
             VerticalOptions="Start"
-            Margin="0,20,20,10">
-            <Image.GestureRecognizers>
-            <TapGestureRecognizer Tapped="OnImage"/>
-            </Image.GestureRecognizers>
-        </Image>
+            Margin="210,20,20,10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImage"/>
+                </Image.GestureRecognizers>
+            </Image>
 
-      
-        
-            <StackLayout>
-               
-                <Label Text="GRACZE:"
-                   Margin="0,100,0,0"
+        </StackLayout>
+        <Label Text="GRACZE:"
+                 
                    FontAttributes="Bold"
                    FontFamily="Chaser Regular"
                    HorizontalOptions="Center"
-                   FontSize="60"/>
+                   FontSize="60"
+               Margin="0,80,0,0"/>
+        <ScrollView x:Name="scrollView" Grid.Row="1" Margin="0,0,0,0"  VerticalOptions="Start" HeightRequest="420" >
+            <StackLayout x:Name="playerStackLayout">
 
-                
-            <ScrollView Grid.Row="1">
-                <StackLayout HorizontalOptions="Center" x:Name="stackLayout">
-                    <StackLayout Orientation="Horizontal"
-                             >
-                        <Label Text="1" VerticalOptions="Center"
-                           FontSize="90" FontFamily="Miniver-Regular"
-                           Margin="20,0,0,0"
-                           />
-                        <Frame
-                        BackgroundColor="#c7c7c6"
-                        Margin="20,0,20,0"
-                        Padding="10,0"
-                        HeightRequest="65"
-                        CornerRadius="10"
-                        BorderColor="Black"
-                        
-                        HorizontalOptions="FillAndExpand">
-                            <Entry
-                                x:Name="entryOne"
-                            IsEnabled="True"
-                            IsReadOnly="False"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"
-                            FontSize="15"/>
-                        </Frame>
-                        <Button
-                        BackgroundColor="Black"
-                        HeightRequest="50"
-                        Margin="0,0,20,0"
-                        WidthRequest="50"
-                        Text="-"
-                        Padding="0,-53,0,0"
-                        FontSize="100"
-                        TextColor="#c7c7c6"
-                        CornerRadius="50"
-                            Clicked="RemovePlayer_Clicked"
-                            CommandParameter="0"
-                        
-                            />
-
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Margin="0,-20,0,0">
-                        <Label Text="2" VerticalOptions="Center"
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,-10,0,0">
+                    <Label Text="1" VerticalOptions="Center"
                            FontSize="80" FontFamily="Miniver-Regular"
                            Margin="20,0,0,0"/>
-                        <Frame
-                        BackgroundColor="#c7c7c6"
-                        Margin="10,0,20,0"
-                        Padding="10,0"
-                        HeightRequest="65"
-                        CornerRadius="10"
-                        BorderColor="Black"
-                        HorizontalOptions="FillAndExpand">
-                            <Entry
-                            x:Name="entryTwo"
-                            IsEnabled="True"
-                            IsReadOnly="False"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"
-                            FontSize="15"/>
-                        </Frame>
-                        <Button
-                        BackgroundColor="Black"
-                        HeightRequest="50"
-                        WidthRequest="50"
-                        Text="-"
-                        Padding="0,-53,0,0"
-                        FontSize="100"
-                        TextColor="#c7c7c6"
-                        CornerRadius="50"
-                        Margin="0,0,20,0"
-                        />
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Margin="0,-20,0,0">
-                        <Label Text="3" VerticalOptions="Center"
-                           FontSize="80" FontFamily="Miniver-Regular"
-                           Margin="20,0,0,0"/>
-                        <Frame
-                        BackgroundColor="#c7c7c6"
-                        Margin="10,0,20,0"
-                        Padding="10,0"
-                        HeightRequest="65"
-                        CornerRadius="10"
-                        BorderColor="Black"
-                        HorizontalOptions="FillAndExpand">
-                            <Entry
-                            x:Name="entryTree"
-                            IsEnabled="True"
-                            IsReadOnly="False"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"
-                            FontSize="15"/>
-                        </Frame>
-                        <Button
-                        BackgroundColor="Black"
-                        HeightRequest="50"
-                        WidthRequest="50"
-                        Text="-"
-                        Padding="0,-53,0,0"
-                        FontSize="100"
-                        TextColor="#c7c7c6"
-                        CornerRadius="50"
-                        Margin="0,0,20,0"
-                       />
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" Margin="0,-20,0,0">
-                        <Label Text="4" VerticalOptions="Center"
-                           FontSize="80" FontFamily="Miniver-Regular"
-                           Margin="20,0,0,0"/>
-                        <Frame
-                        BackgroundColor="#c7c7c6"
-                        Margin="7,0,20,0"
-                        Padding="10,0"
-                        HeightRequest="65"
-                        CornerRadius="10"
-                        BorderColor="Black"
-                        HorizontalOptions="FillAndExpand">
-                            <Entry
-                            x:Name="entryFour"
-                            IsEnabled="True"
-                            IsReadOnly="False"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"
-                            FontSize="15"/>
-                        </Frame>
-
-                        <Button
-                        BackgroundColor="Black"
-                        HeightRequest="50"
-                        WidthRequest="50"
-                        Text="-"
-                        Padding="0,-53,0,0"
-                        FontSize="100"
+                    <Frame BackgroundColor="#c7c7c6"
+                           Margin="10,0,20,0"
+                           Padding="10,0"
+                           HeightRequest="65"
+                           CornerRadius="10"
+                           BorderColor="Black"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry x:Name="initialEntry"
+                               
+                               IsEnabled="True"
+                               IsReadOnly="False"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"
+                               FontSize="15"/>
+                    </Frame>
+                    <Button BackgroundColor="Black"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Text="-"
+                            Padding="0,-53,0,0"
+                            FontSize="100"
                             Margin="0,0,20,0"
-                        TextColor="#c7c7c6"
-                        CornerRadius="50"
-                        />
-
-
-                    </StackLayout>
-
-
-
-                    <Button Text="+"
-                    FontSize="60"
-                    BackgroundColor="Black"
-                    CornerRadius="50"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    Padding="0,-17,0,0"
-                      TextColor="#c7c7c6"
-                        Margin="0,-10,0,0"
-                    Clicked="AddPlayer_Clicked"
-                            
-                    
-                    />
+                            Clicked="RemovePlayer_Clicked"
+                            CornerRadius="50"
+/>
                 </StackLayout>
-            </ScrollView>
-        </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,-10,0,0">
+                    <Label Text="2" VerticalOptions="Center"
+                           FontSize="80" FontFamily="Miniver-Regular"
+                           Margin="20,0,0,0"/>
+                    <Frame BackgroundColor="#c7c7c6"
+                           Margin="10,0,20,0"
+                           Padding="10,0"
+                           HeightRequest="65"
+                           CornerRadius="10"
+                           BorderColor="Black"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry 
+                               IsEnabled="True"
+                               IsReadOnly="False"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"
+                               FontSize="15"/>
+                    </Frame>
+                    <Button BackgroundColor="Black"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Text="-"
+                            Padding="0,-53,0,0"
+                            FontSize="100"
+                            Margin="0,0,20,0"
+                            Clicked="RemovePlayer_Clicked"
+                           CornerRadius="50"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,-10,0,0">
+                    <Label Text="3" VerticalOptions="Center"
+                           FontSize="80" FontFamily="Miniver-Regular"
+                           Margin="20,0,0,0"/>
+                    <Frame BackgroundColor="#c7c7c6"
+                           Margin="10,0,20,0"
+                           Padding="10,0"
+                           HeightRequest="65"
+                           CornerRadius="10"
+                           BorderColor="Black"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry 
+                               IsEnabled="True"
+                               IsReadOnly="False"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"
+                               FontSize="15"/>
+                    </Frame>
+                    <Button BackgroundColor="Black"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Text="-"
+                            Padding="0,-53,0,0"
+                            FontSize="100"
+                            Margin="0,0,20,0"
+                            CornerRadius="50"
+                            Clicked="RemovePlayer_Clicked"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                           Margin="0,-10,0,0">
+                    <Label Text="4" VerticalOptions="Center"
+                           FontSize="80" FontFamily="Miniver-Regular"
+                           Margin="20,0,0,0"/>
+                    <Frame BackgroundColor="#c7c7c6"
+                           Margin="10,0,20,0"
+                           Padding="10,0"
+                           HeightRequest="65"
+                           CornerRadius="10"
+                           BorderColor="Black"
+                           HorizontalOptions="FillAndExpand">
+                        <Entry
+                               IsEnabled="True"
+                               IsReadOnly="False"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"
+                               FontSize="15"/>
+                    </Frame>
+                    <Button BackgroundColor="Black"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Text="-"
+                            Padding="0,-53,0,0"
+                            FontSize="100"
+                            Margin="0,0,20,0"
+                            Clicked="RemovePlayer_Clicked"
+                            CornerRadius="50"/>
+                </StackLayout>
+            </StackLayout>
+            
+        </ScrollView>
+
+
+
+
+
+        <StackLayout  x:Name="stack" Grid.Row="2" Margin="0" HeightRequest="160" Orientation="Horizontal" BackgroundColor="#8198d3" VerticalOptions="End" >
+            
+            <Button 
+        Text="Usuń"
+        FontSize="26"
+        BackgroundColor="Black"
+        TextColor="#c7c7c6"
+        FontFamily="Chaser Regular"
+        CornerRadius="80"
+        HeightRequest="80"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="End" 
+        Margin="15, 0, 0, 15"/>
+
+            <BoxView WidthRequest="10" BackgroundColor="Transparent" HeightRequest="0" />
+
+            <Button 
+        Text="Zatwierdź"
+        FontSize="25"
+        TextColor="#c7c7c6"
+        FontFamily="Chaser Regular"
+        BackgroundColor="Black"
+        CornerRadius="80"
+        HeightRequest="80"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="End"
+        Clicked="OnSubmitButtonClicked"
+        Margin="0, 0, 15, 15"/>
         
 
-        <Grid Grid.Row="1" Margin="10,20,10,20">
-          
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-             
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            
-            <Button Grid.Column="0"
-            Text="Usuń"
-            FontSize="26"
-            BackgroundColor="Black"
-            TextColor="#c7c7c6"
-            FontFamily="Chaser Regular"
-            CornerRadius="80"
-            HeightRequest="80"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="End" />
-          
-            <BoxView Grid.Column="1" WidthRequest="10" BackgroundColor="Transparent" HeightRequest="0" />
-           
-            <Button Grid.Column="2" 
-            Text="Zatwierdź"
-            FontSize="25"
-            TextColor="#c7c7c6"
-            FontFamily="Chaser Regular"
-            BackgroundColor="Black"
-            CornerRadius="80"
-            HeightRequest="80"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="End"
-                    Clicked="OnSubmitButtonClicked"/>
-            
-        </Grid>
-
-
+        
+        </StackLayout>
+        <Button Grid.Row="2"
+            Text="+"
+    FontSize="60"
+    BackgroundColor="Black"
+    CornerRadius="50"
+    WidthRequest="50"
+    HeightRequest="50"
+    Padding="0,-17,0,0"
+    TextColor="#c7c7c6"
+    Clicked="AddPlayer_Clicked"
+    HorizontalOptions="Center"
+    VerticalOptions="End"
+    Margin="0,0,0,110" />
     </Grid>
 
-
-
 </ContentPage>
-
