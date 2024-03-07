@@ -1,0 +1,123 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.NewPage2"
+             BackgroundColor="#8198d3"
+             Shell.NavBarIsVisible="False"
+             Title="">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+       
+        <Image
+            Source="strzalka.jpg"
+            Margin="20"
+            WidthRequest="60"
+            HorizontalOptions="Start"
+            VerticalOptions="Start">
+            <Image.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnImageDo"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+     
+        <Label
+            Text="GRACZ:"
+            FontFamily="Chaser Regular"
+            Margin="45,10,10,10"
+            FontSize="34"
+            FontAttributes="Bold"
+            TextColor="Black"
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"/>
+
+      
+        <Frame
+            BackgroundColor="#c7c7c6"
+            Margin="60,10,60,0"
+            Padding="10,0"
+            HeightRequest="75"
+            CornerRadius="10"
+            BorderColor="Black"
+            Grid.Row="2"
+            Grid.Column="0"
+            
+            Grid.ColumnSpan="2"
+            HorizontalOptions="FillAndExpand">
+            <Picker
+                x:Name="playerPicker"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                FontSize="15"/>
+        </Frame>
+
+       
+        <Frame
+            BackgroundColor="#c7c7c6"
+            Margin="30,90,30,0"
+            Padding="10"
+            CornerRadius="10"
+            HeightRequest="150"
+            BorderColor="Black"
+            
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="FillAndExpand">
+
+    
+        <Button
+            Text="BĘDZIE WYRZUCAĆ WYŻSZĄ LICZBĘ OCZEK"
+            FontSize="13"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="#c7c7c6"
+            CornerRadius="10"
+            HeightRequest="148"
+                WidthRequest="328"
+            BorderColor="Black"
+            FontFamily="Chaser Regular"
+            TextColor="Black"/>
+    
+</Frame>
+            
+
+     
+        <Frame
+            BackgroundColor="#c7c7c6"
+            Margin="30,10,30,0"
+            Padding="10"
+            CornerRadius="10"
+            HeightRequest="150"
+            BorderColor="Black"
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="FillAndExpand">
+            <Button
+                Text="BĘDZIE WYRZUCAĆ NIŻSZĄ LICZBĘ OCZEK"
+                FontSize="13"
+                HeightRequest="149"
+                WidthRequest="328"
+                FontFamily="Chaser Regular"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                BackgroundColor="#c7c7c6"
+                CornerRadius="10"
+                BorderColor="Black"
+                TextColor="Black"/>
+        </Frame>
+
+    </Grid>
+</ContentPage>
