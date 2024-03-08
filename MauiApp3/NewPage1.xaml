@@ -35,7 +35,7 @@
             </Image>
 
         </StackLayout>
-        <Label Text="GRACZE:"
+        <Label x:Name="xd" Text="GRACZE:"
                  
                    FontAttributes="Bold"
                    FontFamily="Chaser Regular"
@@ -57,7 +57,7 @@
                            CornerRadius="10"
                            BorderColor="Black"
                            HorizontalOptions="FillAndExpand">
-                        <Entry x:Name="initialEntry"
+                        <Entry x:Name="entry1"
                                
                                IsEnabled="True"
                                IsReadOnly="False"
@@ -89,6 +89,7 @@
                            BorderColor="Black"
                            HorizontalOptions="FillAndExpand">
                         <Entry 
+                            x:Name="entry2"
                                IsEnabled="True"
                                IsReadOnly="False"
                                HorizontalOptions="FillAndExpand"
@@ -118,6 +119,7 @@
                            BorderColor="Black"
                            HorizontalOptions="FillAndExpand">
                         <Entry 
+                            x:Name="entry3"
                                IsEnabled="True"
                                IsReadOnly="False"
                                HorizontalOptions="FillAndExpand"
@@ -147,6 +149,7 @@
                            BorderColor="Black"
                            HorizontalOptions="FillAndExpand">
                         <Entry
+                            x:Name="entry4"
                                IsEnabled="True"
                                IsReadOnly="False"
                                HorizontalOptions="FillAndExpand"

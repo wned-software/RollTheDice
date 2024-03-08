@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fq2wCDzJRcIk7u9tpIZJ/dMHwWEzoKxRzRQU5pLb7FGZKhq3KfTvqVP+mlJ3MkEojJRYF5loWu2zeHemE2nxzg==",
+  "dgSpecHash": "+Lu2zy9El1Qo1SDdQLzQjPz1d0a09OREh1f6NyIUbE1/p8aT3croveLmNC+1Qe1raLh6x8DMIid5R4s7nZsGvw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\domin\\source\\repos\\MauiApp3\\MauiApp3\\MauiApp3.csproj",
+  "projectFilePath": "C:\\Users\\domin\\Source\\Repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\domin\\.nuget\\packages\\googlegson\\2.9.0.1\\googlegson.2.9.0.1.nupkg.sha512",
     "C:\\Users\\domin\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",

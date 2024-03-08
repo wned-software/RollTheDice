@@ -4,34 +4,47 @@ namespace MauiApp3
 {
     public partial class NewPage1 : ContentPage
     {
-        public List<string> players;
+         public static List<string> playerList = new List<string>();
 
         public NewPage1()
         {
             InitializeComponent();
 
-            // Dodaj pocz¹tkowych 4 graczy
+            
 
         }
         private async void OnImageDo(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//MainPage");
         }
-        private  async void OnSubmitButtonClicked(object sender, EventArgs e)
+
+        private void OnSubmitButtonClicked(object sender, EventArgs e)
         {
-           
-           
+            foreach (var child in playerStackLayout.Children)
+            {
+                if (child is StackLayout stackLayout)
+                {
+                    foreach (var view in stackLayout.Children)
+                    {
+                        if (view is Entry entry)
+                        {
+                            playerList.Add(entry.Text);
+                           
+                        }
+                    }
+                }
+            }
+
             
-            
 
-
-
-
+            /*Navigation.PushAsync(new MainPage());*/
         }
-        
+
+
+
 
         int playerNumber = 1;
-        bool playersExist = false; // Zmienna przechowuj¹ca informacjê o istnieniu graczy
+        bool playersExist = false; 
 
         void RemovePlayer_Clicked(object sender, EventArgs e)
         {
@@ -57,7 +70,7 @@ namespace MauiApp3
 
             var label = new Label
             {
-                Text = playersExist ? playerNumber.ToString() : "5", // Jeœli nie ma jeszcze graczy, ustawiaj¹c pocz¹tkow¹ wartoœæ na 5
+                Text = (playerList.Count + 1).ToString(), 
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 90,
                 FontFamily = "Miniver-Regular",
@@ -102,33 +115,36 @@ namespace MauiApp3
             playerNumber++;
 
             playerStackLayout.Children.Insert(playerStackLayout.Children.Count, playerLayout);
+           
+            playerList.Add(entry.Text);
 
-            // Zaktualizuj flagê playersExist na true po dodaniu pierwszego gracza
+            
+            UpdatePlayerNumbers(playerStackLayout);
+           
             if (!playersExist)
                 playersExist = true;
         }
 
         void UpdatePlayerNumbers(StackLayout grandParentStackLayout)
         {
-            // Pocz¹tkowa wartoœæ numerka gracza
-            playerNumber = playersExist ? 1 : 5; // Ustaw pocz¹tkow¹ wartoœæ na 1, jeœli istniej¹ ju¿ gracze, w przeciwnym razie na 5
+            
+            playerNumber = 1; 
 
-            // Przejrzyj wszystkie StackLayout-y zawieraj¹ce numery graczy
             foreach (var child in grandParentStackLayout.Children)
             {
-                // Jeœli dziecko jest StackLayout-em
+                
                 if (child is StackLayout playerLayout)
                 {
-                    // Przejrzyj wszystkie elementy w danym StackLayout-ie
+                   
                     foreach (var innerChild in playerLayout.Children)
                     {
-                        // Jeœli dziecko jest etykiet¹ (Label), która wyœwietla numer gracza
+                        
                         if (innerChild is Label label && label.Text != "+" && label.Text != "-")
                         {
-                            // Zaktualizuj numer gracza
+                            
                             label.Text = playerNumber.ToString();
-                            playerNumber++; // PrzejdŸ do nastêpnego numeru gracza
-                            break; // PrzejdŸ do nastêpnego StackLayout-a z numerem gracza
+                            playerNumber++; 
+                            break; 
                         }
                     }
                 }
