@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\domin\\Source\\Repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj": {}
+    "C:\\Users\\domin\\source\\repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\domin\\Source\\Repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj": {
+    "C:\\Users\\domin\\source\\repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\domin\\Source\\Repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj",
+        "projectUniqueName": "C:\\Users\\domin\\source\\repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj",
         "projectName": "MauiApp3",
-        "projectPath": "C:\\Users\\domin\\Source\\Repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj",
+        "projectPath": "C:\\Users\\domin\\source\\repos\\RolltheDice\\MauiApp3\\MauiApp3.csproj",
         "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\domin\\Source\\Repos\\RolltheDice\\MauiApp3\\obj\\",
+        "outputPath": "C:\\Users\\domin\\source\\repos\\RolltheDice\\MauiApp3\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

@@ -26,10 +26,16 @@ namespace MauiApp3
                 {
                     foreach (var view in stackLayout.Children)
                     {
-                        if (view is Entry entry)
+                        if (view is Frame frame)
                         {
-                            playerList.Add(entry.Text);
-                           
+                            foreach (View innerView in frame.Children)
+                            {
+                                if (innerView is Entry entry)
+                                {
+                                    string entryText = entry.Text;
+                                    playerList.Add(entryText);
+                                }
+                            }
                         }
                     }
                 }
@@ -37,7 +43,7 @@ namespace MauiApp3
 
             
 
-            /*Navigation.PushAsync(new MainPage());*/
+            Navigation.PushAsync(new MainPage());
         }
 
 

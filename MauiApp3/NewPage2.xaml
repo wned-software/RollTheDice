@@ -88,7 +88,8 @@
                 WidthRequest="328"
             BorderColor="Black"
             FontFamily="Chaser Regular"
-            TextColor="Black"/>
+            TextColor="Black"
+            Clicked="SetPlayerPreference_Clicked"/>
     
 </Frame>
             
@@ -116,7 +117,8 @@
                 BackgroundColor="#c7c7c6"
                 CornerRadius="10"
                 BorderColor="Black"
-                TextColor="Black"/>
+                TextColor="Black"
+                Clicked="SetPlayerPreference_Clicked1"/>
         </Frame>
 
     </Grid>

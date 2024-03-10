@@ -84,10 +84,7 @@
                 label.Opacity = 0;
             }
 
-            if (playerList.Count > 0)
-            {
-                currentPlayerIndex = (currentPlayerIndex + 1) % playerList.Count;
-            }
+            
         }
 
         private void OnScreenTapped(object sender, EventArgs e)
