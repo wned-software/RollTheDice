@@ -6,18 +6,20 @@
 
         private int currentPlayerIndex = 0;
         private bool isFirstClick = true;
+        Dictionary<string, bool> results;
 
         public MainPage()
         {
             InitializeComponent();
+            results = NewPage2.resultsDictionary;
 
-            // Inicjalizacja listy graczy
+            
             playerList = NewPage1.playerList;
 
-            // Sprawdzenie, czy lista graczy nie jest pusta
+           
             if (playerList.Count > 0)
             {
-                // Ustaw pierwszą wartość z listy graczy jako tekst w nameEntry
+                
                 nameEntry.Text = playerList[0];
             }
             else
@@ -49,43 +51,72 @@
 
         private async void OnRollDiceClicked(object sender, EventArgs e)
         {
-            if (isFirstClick)
-            {
-                isFirstClick = false;
-            }
+            if (playerList.Count == 0) { }
             else
             {
-                Random random = new Random();
-                int diceValue = random.Next(1, 7);
-
-                switch (diceValue)
+                if (isFirstClick)
                 {
-                    case 1:
-                        diceImage.Source = "jeden.png";
-                        break;
-                    case 2:
-                        diceImage.Source = "dwa.png";
-                        break;
-                    case 3:
-                        diceImage.Source = "trzy.png";
-                        break;
-                    case 4:
-                        diceImage.Source = "cztery.png";
-                        break;
-                    case 5:
-                        diceImage.Source = "piec.png";
-                        break;
-                    case 6:
-                        diceImage.Source = "szesc.png";
-                        break;
-                    default:
-                        break;
+                    isFirstClick = false;
                 }
-                label.Opacity = 0;
-            }
+                else
+                {
+                    Random random = new Random();
+                    int diceValue;
+                    var enumerator = results.Keys.GetEnumerator();
 
-            
+                    // Jeśli można pobrać następny klucz, odczytaj wartość dla tego klucza
+                    while (enumerator.MoveNext())
+                    {
+                        var currentPlayer = enumerator.Current;
+
+                        if (results.TryGetValue(currentPlayer, out bool isTrue))
+                        {
+                            if (isTrue)
+                            {
+                                diceValue = random.Next(4, 7);
+                            }
+                            else
+                            {
+                                diceValue = random.Next(1, 4);
+                            }
+                        }
+                        else
+                        {
+                            diceValue = random.Next(1, 7);
+                        }
+
+
+
+
+                        switch (diceValue)
+                        {
+                            case 1:
+                                diceImage.Source = "jeden.png";
+                                break;
+                            case 2:
+                                diceImage.Source = "dwa.png";
+                                break;
+                            case 3:
+                                diceImage.Source = "trzy.png";
+                                break;
+                            case 4:
+                                diceImage.Source = "cztery.png";
+                                break;
+                            case 5:
+                                diceImage.Source = "piec.png";
+                                break;
+                            case 6:
+                                diceImage.Source = "szesc.png";
+                                break;
+                            default:
+                                break;
+                        }
+                        label.Opacity = 0;
+                    }
+                }
+            }
         }
+
 
         private void OnScreenTapped(object sender, EventArgs e)
         {
@@ -95,15 +126,15 @@
             {
                 if (currentPlayerIndex >= playerList.Count)
                 {
-                    currentPlayerIndex = 0; // Wróć do początku listy
+                    currentPlayerIndex = 0; 
                 }
 
                 nameEntry.Text = playerList[currentPlayerIndex];
-                currentPlayerIndex++; // Przejdź do następnego gracza
+                currentPlayerIndex++; 
             }
             else
             {
-                // Obsługa przypadku, gdy lista graczy jest pusta
+               
                 nameEntry.Text = "Lista graczy jest pusta";
             }
         }

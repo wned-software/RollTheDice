@@ -3,13 +3,21 @@ namespace MauiApp3;
 public partial class NewPage2 : ContentPage
      
 {
-    static Dictionary<Player, bool> playerPreferences = new Dictionary<Player, bool>();
+      public static Dictionary<string, bool> resultsDictionary = new Dictionary<string, bool>();
+
     List<string> players = new List<string>();
     public NewPage2()
     {
         InitializeComponent();
         players = NewPage1.playerList;
-        
+        while (players.Count == 0)
+        {
+
+
+            DisplayAlert("B³¹d", "Musisz dodaæ graczy przed ustawieniem preferencji.", "OK");
+            return;
+        }
+
     }
     private async void OnImageDo(object sender, EventArgs e)
     {
@@ -17,71 +25,65 @@ public partial class NewPage2 : ContentPage
     }
     void SetPlayerPreference_Clicked(object sender, EventArgs e)
     {
-        // Sprawdzenie, czy wybrano gracza
+        
         if (playerPicker.SelectedItem == null)
         {
             DisplayAlert("B³¹d", "Wybierz gracza przed ustawieniem preferencji.", "OK");
             return;
         }
 
-        // Pobranie wybranego gracza z picker'a
-        var selectedPlayer = playerPicker.SelectedItem as Player;
+       
+        string selectedPlayer = (string)playerPicker.SelectedItem;
 
-        // Ustalenie preferencji w zale¿noœci od tekstu przycisku
-        bool willRollHigh = ((Button)sender).Text == "BÊDZIE WYRZUCAÆ WY¯SZ¥ LICZBÊ OCZEK";
-
-        // Sprawdzenie, czy w s³owniku istnieje ju¿ wpis dla tego gracza
-        if (playerPreferences.ContainsKey(selectedPlayer))
+        
+        if (!resultsDictionary.ContainsKey(selectedPlayer))
         {
-            // Jeœli tak, zaktualizuj preferencjê dla tego gracza
-            playerPreferences[selectedPlayer] = willRollHigh;
+            
+            resultsDictionary.Add(selectedPlayer, true);
         }
         else
         {
-            // Jeœli nie, dodaj nowy wpis do s³ownika
-            playerPreferences.Add(selectedPlayer, willRollHigh);
+           
+            resultsDictionary[selectedPlayer] = true;
         }
 
-        // Wyœwietlenie komunikatu potwierdzaj¹cego zapisanie preferencji
-        DisplayAlert("Ustawienia zapisane", $"Preferencje dla gracza '{selectedPlayer.Name}' zosta³y ustawione.", "OK");
+        
+        DisplayAlert("Sukces", $"Preferencja dla gracza {selectedPlayer} ustawiona.", "OK");
     }
+
 
     void SetPlayerPreference_Clicked1(object sender, EventArgs e)
     {
-        // Sprawdzenie, czy wybrano gracza
+       
         if (playerPicker.SelectedItem == null)
         {
             DisplayAlert("B³¹d", "Wybierz gracza przed ustawieniem preferencji.", "OK");
             return;
         }
 
-        // Pobranie wybranego gracza z picker'a
-        var selectedPlayer = playerPicker.SelectedItem as Player;
+        
+        string selectedPlayer = (string)playerPicker.SelectedItem;
 
-        // Ustalenie preferencji w zale¿noœci od tekstu przycisku
-        bool willRollLow = ((Button)sender).Text == "BÊDZIE WYRZUCAÆ NI¯SZ¥ LICZBÊ OCZEK";
-
-        // Sprawdzenie, czy w s³owniku istnieje ju¿ wpis dla tego gracza
-        if (playerPreferences.ContainsKey(selectedPlayer))
+     
+        if (!resultsDictionary.ContainsKey(selectedPlayer))
         {
-            // Jeœli tak, zaktualizuj preferencjê dla tego gracza
-            playerPreferences[selectedPlayer] = !willRollLow; // Odwrócenie wartoœci
+            
+            resultsDictionary.Add(selectedPlayer, false);
         }
         else
         {
-            // Jeœli nie, dodaj nowy wpis do s³ownika
-            playerPreferences.Add(selectedPlayer, !willRollLow); // Odwrócenie wartoœci
+            
+            resultsDictionary[selectedPlayer] = false;
         }
 
-        // Wyœwietlenie komunikatu potwierdzaj¹cego zapisanie preferencji
-        DisplayAlert("Ustawienia zapisane", $"Preferencje dla gracza '{selectedPlayer.Name}' zosta³y ustawione.", "OK");
+        DisplayAlert("Sukces", $"Preferencja dla gracza {selectedPlayer} ustawiona.", "OK");
     }
 
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
+       
         foreach (var player in players)
         {
             playerPicker.Items.Add(player);

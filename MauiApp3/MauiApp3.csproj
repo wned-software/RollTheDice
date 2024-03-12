@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <Compile Remove="Class1.cs" />
+	  <Compile Remove="Player.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
