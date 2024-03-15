@@ -51,7 +51,10 @@
 
         private async void OnRollDiceClicked(object sender, EventArgs e)
         {
-            if (playerList.Count == 0) { }
+            if (playerList.Count == 0)
+            {
+                
+            }
             else
             {
                 if (isFirstClick)
@@ -62,32 +65,32 @@
                 {
                     Random random = new Random();
                     int diceValue;
-                    var enumerator = results.Keys.GetEnumerator();
+                  
+                    List<string> playerKeys = results.Keys.ToList();
 
-                    // Jeśli można pobrać następny klucz, odczytaj wartość dla tego klucza
-                    while (enumerator.MoveNext())
+                   
+                    foreach (string currentPlayer in playerKeys)
                     {
-                        var currentPlayer = enumerator.Current;
-
                         if (results.TryGetValue(currentPlayer, out bool isTrue))
                         {
                             if (isTrue)
                             {
+                                
                                 diceValue = random.Next(4, 7);
                             }
                             else
                             {
+                               
                                 diceValue = random.Next(1, 4);
                             }
                         }
                         else
                         {
+                          
                             diceValue = random.Next(1, 7);
                         }
 
-
-
-
+                     
                         switch (diceValue)
                         {
                             case 1:
@@ -118,7 +121,8 @@
         }
 
 
-        private void OnScreenTapped(object sender, EventArgs e)
+
+                    private void OnScreenTapped(object sender, EventArgs e)
         {
             nameEntry.IsReadOnly = true;
 
